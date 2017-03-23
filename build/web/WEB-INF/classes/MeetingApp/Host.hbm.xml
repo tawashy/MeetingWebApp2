@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/03/2017 11:53:06 ?? by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="meetingdb" name="MeetingApp.Host" optimistic-lock="version" table="host">
+    <id name="hostEmail" type="string">
+      <column length="120" name="HOST_EMAIL"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="hostName" type="string">
+      <column length="45" name="HOST_NAME" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="meetings" table="meeting">
+      <key>
+        <column length="120" name="HOST_EMAIL" not-null="true"/>
+      </key>
+      <one-to-many class="MeetingApp.Meeting"/>
+    </set>
+  </class>
+</hibernate-mapping>

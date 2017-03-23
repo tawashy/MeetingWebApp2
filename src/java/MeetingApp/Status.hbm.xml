@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/03/2017 11:53:06 ?? by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="meetingdb" name="MeetingApp.Status" optimistic-lock="version" table="status">
+    <id name="statusId" type="int">
+      <column name="STATUS_ID"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="statusType" type="string">
+      <column length="5" name="STATUS_TYPE" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="participantMeetings" table="participant_meeting">
+      <key>
+        <column name="STATUS_ID" not-null="true"/>
+      </key>
+      <one-to-many class="MeetingApp.ParticipantMeeting"/>
+    </set>
+  </class>
+</hibernate-mapping>
