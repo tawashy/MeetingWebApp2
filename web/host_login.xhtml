@@ -22,7 +22,7 @@
                 <h:message for="email" style="color: red; font-size: 0.7em" />
                 <h:inputHidden id="hidden" value="#{hostController.email}" />
                 <h:commandButton id="login" value="Login" action="#{hostController.login()}" />
-                <h:commandButton id="create" value="Create Host" />
+                <h:button id="create" value="Create New Host" outcome="host"/>
                 </h:form>
                 <h:outputText escape="false" value="#{hostController.response}" />
             </div>

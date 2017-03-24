@@ -10,19 +10,22 @@
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/ParticipantMeeting.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/participant.xhtml</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/HostController.java</file>
-            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/HostLoginHelper.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/host.xhtml</file>
+            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/Host.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/host_login.xhtml</file>
+            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/browse.xhtml</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/ParticipantMeetingHelper.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/meeting.xhtml</file>
-            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/HostLoginController.java</file>
+            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/updateMeeting.xhtml</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/ParticipantController.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/template.xhtml</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/ParticipantHelper.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/resources/css/styles.css</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/ParticipantMeetingController.java</file>
             <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/web/participantMeeting.xhtml</file>
+            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/MeetingController.java</file>
+            <file>file:/C:/Users/user/Downloads/meetingapp2/MeetingWebApp2/src/java/MeetingApp/MeetingHelper.java</file>
         </group>
     </open-files>
 </project-private>

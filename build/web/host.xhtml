@@ -17,12 +17,12 @@
                                  size="50" maxlength="45" required="true" label="Name" />
                     <h:message for="name" style="color: red; font-size: 0.7em" />
 
-                    <h:outputText value="Last Name" />
+                    <h:outputText value="Email" />
                     <h:inputText id="email" value="#{hostController.email}"
                                  size="50" maxlength="45" required="true" label="Email" />
                     <h:message for="email" style="color: red; font-size: 0.7em" />
                 </h:panelGrid>
-                <h:commandButton id="submit" value="submit" action="host" />
+                <h:commandButton id="submit" value="Add" action="host" />
                 <h:commandButton value="clear" type="reset" />
             </h:form>
             <h:outputText escape="false" value="#{hostController.response}" />

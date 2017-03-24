@@ -143,12 +143,12 @@ public class ParticipantController implements Serializable {
                 // inser failed
                 name = null;
                 email = null;
-                 return "host_login";
+                 return "participant_login";
             }
         } else {
             // don't dis[lay a message when the user hasn't input 
             // a first and last name
-            return "host_login";
+            return "participant_login";
         }
         
     }
