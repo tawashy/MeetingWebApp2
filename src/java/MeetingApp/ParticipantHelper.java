@@ -63,7 +63,7 @@ public class ParticipantHelper {
             // creating an actul query that can be executed
             SQLQuery q = session.createSQLQuery(sql);
             //associating our Avtor POJO and table with the query 
-            q.addEntity(Host.class);
+            q.addEntity(Participant.class);
             
             // binding values to the placeholders in the query
             q.setParameter("name", a.getParticipantName());
@@ -83,7 +83,7 @@ public class ParticipantHelper {
         
         public int searchParticipant(Participant a){
         
-        List<Participant> participant = null;
+         List<Participant> participant = null;
         
         // create the query, but as a String
         String sql = "select * from Participant where PARTICIPANT_EMAIL like :email and PARTICIPANT_NAME like :name";

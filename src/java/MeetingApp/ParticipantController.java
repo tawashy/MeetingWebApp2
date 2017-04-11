@@ -24,6 +24,7 @@ public class ParticipantController implements Serializable {
     String name;
     String email;
     String response;
+    String error;
     
     DataModel participants;
     
@@ -125,7 +126,7 @@ public class ParticipantController implements Serializable {
         this.participants = participants;
     }
     
-    public String login(){
+   public String login(){
 
          if (name != null && email != null) {
             
@@ -137,20 +138,31 @@ public class ParticipantController implements Serializable {
                 // insert was successful
                 email = null;
                 name = null;
-                return "participantMeeting";
+                error = "";
+                return "par_meetings";
                 
             } else {
                 // inser failed
                 name = null;
                 email = null;
-                 return "participant_login";
+                error = "Name or email not found";
+                return "par_login";
             }
         } else {
             // don't dis[lay a message when the user hasn't input 
             // a first and last name
-            return "participant_login";
+            return "par_login";
         }
         
     }
-    
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+   
+   
 }

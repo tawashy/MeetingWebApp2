@@ -22,17 +22,20 @@ public class HostController implements Serializable {
     String name;
     String email;
     String response;
+    String error;
     
     // this is our class that uses Hibernare tp quert the host table
     HostHelper helper;
     
     // this is our POJO
     Host host;
+    
     /**
      * Creates a new instance of HostController
      */
     public HostController() {
         helper = new HostHelper();
+        error = "";
     }
 
     public String getName() {
@@ -103,22 +106,30 @@ public class HostController implements Serializable {
                 // insert was successful
                 email = null;
                 name = null;
-                return "updateMeeting";
+                error = "";
+                return "host_meetings";
                 
             } else {
                 // inser failed
                 name = null;
                 email = null;
+                error = "Name or email not found";
                  return "host_login";
             }
         } else {
-            // don't dis[lay a message when the user hasn't input 
+            // don't display a message when the user hasn't input 
             // a first and last name
             return "host_login";
         }
         
     }
-    
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
         
-    
 }

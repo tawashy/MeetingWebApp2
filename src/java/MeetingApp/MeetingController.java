@@ -5,6 +5,7 @@
  */
 package MeetingApp;
 
+//import com.sun.org.apache.bcel.internal.generic.RETURN;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -28,8 +29,14 @@ public class MeetingController implements Serializable {
     Date time;
     String location;
     String response;
-    Host host;
+    
     int selectedId;
+    
+    
+    String hostName;
+    String email;
+    
+    Host host;
     
     DataModel meetingName;
     
@@ -45,6 +52,15 @@ public class MeetingController implements Serializable {
         this.name = name;
     }
 
+    public Host getHost() {
+        return host;
+    }
+
+    public void setHost(Host host) {
+        this.host = host;
+    }
+
+    
     public String getDescription() {
         return description;
     }
@@ -82,6 +98,7 @@ public class MeetingController implements Serializable {
         // have data in them, then insert it into the database
         if (name != null && description != null && date != null && time != null && location != null) {
 
+            host = new Host(email, hostName);
             // initialize an actor so that it contains the data
             // input in the actor.xhtml
             meeting = new Meeting(host, name, description, date, time, location);
@@ -96,6 +113,7 @@ public class MeetingController implements Serializable {
                 time = null;
                 location = null;
                 
+                
                 response = "Meeting Added.";
                 return response;
             } else {
@@ -105,6 +123,7 @@ public class MeetingController implements Serializable {
                 date = null;
                 time = null;
                 location = null;
+                
                 
                 response = "Meeting Not Added.";
                 return response;
@@ -138,12 +157,12 @@ public class MeetingController implements Serializable {
     public String next(){
         startId = startId + (pageSize + 1);
         recreateModel();
-        return "updateMeeting";
+        return "host_meetings";
     }
     
     public DataModel getMeetingName() {
         if (meetingName == null){
-            meetingName = new ListDataModel(helper.getMeetingName(startId));
+            meetingName = new ListDataModel(helper.getMeetingName(startId, email));
         }
         return meetingName;
     }
@@ -160,7 +179,7 @@ public class MeetingController implements Serializable {
     public String previous(){
         startId = startId - pageSize;
         recreateModel();
-        return "updateMeeting";
+        return "host_meetings";
     }
 
     public int getPageSize() {
@@ -190,7 +209,7 @@ public class MeetingController implements Serializable {
         selected = (Meeting) getMeetingName().getRowData();
         // return the name of the page that will load when the hyperlink
         // is selected
-        return "browse";
+        return "host_meeting_details";
     }
     
     public Meeting getSelected() {
@@ -211,6 +230,18 @@ public class MeetingController implements Serializable {
     public void setSelectedId(int selectedId) {
         this.selectedId = selectedId;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
-    
+    public void setMeeting (String email){
+         if (meetingName == null){
+            meetingName = new ListDataModel(helper.getMeetingName(startId, email));
+        }
+    }
 }

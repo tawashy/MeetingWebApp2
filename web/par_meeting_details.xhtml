@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="template2.xhtml">
+
+        <ui:define name="body">
+            <h3>Meeting Details</h3>
+            
+                <div class="alert alert-success col-md-12">
+                    <h3><h:outputLabel value="#{participantMeetingController.selected.meeting.meetingName}"/></h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                             <tbody>      
+                                <tr>
+                                  <td>Description</td>
+                                  <td><h:outputText value="#{participantMeetingController.selected.meeting.meetingDescription}" /></td>
+                                </tr>
+                                <tr>
+                                  <td>Date</td>
+                                  <td><h:outputText value="#{participantMeetingController.selected.meeting.meetingDate}" /></td>
+
+                                </tr>
+                                <tr>
+                                  <td>Time</td>
+                                  <td><h:outputText value="#{participantMeetingController.selected.meeting.meetingTime}" /></td>
+
+                                </tr>
+                                <tr>
+                                  <td>Location</td>
+                                  <td><h:outputText value="#{participantMeetingController.selected.meeting.meetingLocation}" /></td>
+                                </tr>
+                              </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="alert alert-info">
+                <strong>Are you going?</strong> "Meeting status is set to 'Maybe' in default."
+                    <h:form class="form-group-sm">
+                        <h:commandButton value="Going."/>
+                        <h:commandButton value="Not Going."/>
+                        <h:commandButton value="Maybe."/>
+                    </h:form>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

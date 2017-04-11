@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite">
+<ui:composition template="template2.xhtml">
+
+        <ui:define name="body">
+            <h3>Invite Participant to meeting Meeting Page</h3>
+            
+            <div class="well">
+
+            
+                <div class="form-group">
+                    <h:dataTable value="#{participantMeetingController.participantMeetingList}" var="item" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" class="table">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Participant Name" />
+                        </f:facet>
+                        <h:outputText value="#{item.participant.participantName}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Participant Email" />
+                        </f:facet>
+                        <h:outputText value="#{item.participant.participantEmail}" />
+
+                    </h:column>
+                </h:dataTable>
+                    </div>
+                
+            
+                </div>
+            <div class="alert alert-info">
+                <h3>Enter a participant email to add to <strong>#{participantMeetingController.meeting.meetingName}</strong> Meeting</h3>
+                    <h:form class="form-group-sm">
+                        <h:inputText value="#{participantMeetingController.email}"/>
+                        <h:commandButton id="invite" value="Invite" action="host_invite_par"/>
+                    </h:form>
+                    <h:outputText escape="false" value="#{participantMeetingController.response}" />
+            </div>
+        </ui:define>
+
+    </ui:composition>
+</html>

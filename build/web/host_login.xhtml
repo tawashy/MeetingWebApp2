@@ -18,13 +18,19 @@
                 <h:inputText class="form-control" id="name" value="#{hostController.name}" size="50" maxlength="45" required="true"/>
                 <h:message for="name" style="color: red; font-size: 0.7em" />
                 <h:outputText value="Email" /> 
-                <h:inputText class="form-control" id="email" value="#{hostController.email}" size="50" maxlength="45" required="true"/>
+                <h:inputText class="form-control" binding="#{input1}" id="email" value="#{hostController.email}" size="50" maxlength="45" required="true"/>
                 <h:message for="email" style="color: red; font-size: 0.7em" />
-                <h:inputHidden id="hidden" value="#{hostController.email}" />
-                <h:commandButton id="login" value="Login" action="#{hostController.login()}" />
-                <h:button id="create" value="Create New Host" outcome="host"/>
+                <h:commandButton class="btn btn-default btn-sm" id="login2" value="Login" action="#{hostController.login()}">
+                    <f:setPropertyActionListener target="#{meetingController.host}" value="#{hostController.host}" />
+                    <f:setPropertyActionListener target="#{meetingController.email}" value="#{hostController.email}" />
+                    
+                </h:commandButton>
+                 
+                
+                
+                <h:button id="create" value="Create New Host" outcome="host_add" class="btn btn-default btn-sm"/>
                 </h:form>
-                <h:outputText escape="false" value="#{hostController.response}" />
+                <h:outputText escape="false" value="#{hostController.error}" />
             </div>
         </div>
     </ui:define>
