@@ -188,4 +188,41 @@ public class ParticipantMeetingHelper {
         return meetingList.size();
     }
     
+        public int updateStatus(ParticipantMeeting a){
+                        int result = 0;
+        
+        String sql = "update participant_meeting" 
+                + "set STATUS_ID = :statusId"
+                + "where PARTICIPANT_EMAIL = :parEmail"
+                + "and MEETING_ID = :meetingId";
+        
+        try {
+            // starting a transaction if on wisn't active
+            if (!this.session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
+            
+            // creating an actul query that can be executed
+            SQLQuery q = session.createSQLQuery(sql);
+            //associating our Avtor POJO and table with the query 
+            q.addEntity(ParticipantMeeting.class);
+            
+            int num = a.getMeeting().getMeetingId();
+            String em = a.getParticipant().getParticipantEmail();
+            // binding values to the placeholders in the query
+            q.setParameter("meeting", a.getMeeting().getMeetingId());
+            q.setParameter("participant", a.getParticipant().getParticipantEmail());
+            q.setParameter("status", a.getStatus().getStatusId());
+            
+            // executing the query 
+            result = q.executeUpdate();
+            
+            // commiting the query to the database
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return result;
+    }
 }

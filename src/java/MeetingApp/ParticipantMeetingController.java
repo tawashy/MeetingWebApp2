@@ -40,7 +40,6 @@ public class ParticipantMeetingController implements Serializable {
 
     // 
     String response;
-    String statusRespone;
     private int recordCount;
     private int pageSize = 5;
     private ParticipantMeeting selected;
@@ -232,7 +231,7 @@ public class ParticipantMeetingController implements Serializable {
     }
 
     public String getStatusRespone() {
-        if (meeting.getMeetingId() != 0 && email != null) {
+        if (meeting.getMeetingId() != 0 && email != null && statusId != 0) {
             
             // create objects
             // if number of participant is greater than 5 ... Reject the insertion.
@@ -246,7 +245,7 @@ public class ParticipantMeetingController implements Serializable {
             participantMeeting = new ParticipantMeeting(meeting, participant, status);
             
             //calling our helper that inserts a row into the actor table
-            if (helper.inviteParticipant(participantMeeting) == 1 ){
+            if (helper.updateStatus(participantMeeting) == 1 ){
                 // insert was successful
                 meeting = null;
                 participant = null;

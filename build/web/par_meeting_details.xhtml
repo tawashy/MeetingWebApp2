@@ -38,11 +38,15 @@
             </div>
             <div class="alert alert-info">
                 <strong>Are you going?</strong> "Meeting status is set to 'Maybe' in default."
+                <ul class="dropdown-menu">
+                    <li>List 1</li>
+                    <li>List 2</li>
+                    <li>List 3</li>
+                </ul>
                     <h:form class="form-group-sm">
-                        <h:commandButton value="Going."/>
-                        <h:commandButton value="Not Going."/>
-                        <h:commandButton value="Maybe."/>
+                        <h:commandButton value="Going." action="par_meeting_details"/>
                     </h:form>
+                <h:outputText escape="false" value="#{participantController.response}" />
             </div>
         </ui:define>
 
